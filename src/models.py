@@ -1,17 +1,21 @@
+
+class Formula:
+    def __init__(self):
+        self.tokens = []
+
+    def append_token(self, token):
+        self.tokens.append(token)
+
+
+class Connective:
+    def __init__(self, token):
+        self.token = token
+
+
 class Literal:
     def __init__(self, token, negation=False):
         self.token = token
         self.negation = negation
-
-
-class Connective:
-    def __init__(self, token, left_literal, right_literal):
-        assert isinstance(left_literal, Literal)
-        assert isinstance(right_literal, Literal)
-
-        self.token = token
-        self.left_literal = left_literal
-        self.right_literal = right_literal
 
 
 class Predicate(Literal):
@@ -36,9 +40,3 @@ class UniversalQuantifier(Quantifier):
         super().__init__(variable, negation=negation)
 
 
-class Formula:
-    def __init__(self):
-        self.tokens = []
-
-    def append_token(self, token):
-        self.tokens.append(token)

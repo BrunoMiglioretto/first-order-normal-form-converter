@@ -88,8 +88,30 @@ def build_proposition_token(latex):
 
 
 def build_sub_formula_token(latex):
-    pass
+    return build_formula(latex)
 
+
+
+
+r"""
+
+A \rightarrow B \or (B \leftrightarrow A)) \leftrightarrow (B \rightarrow A)
+B \leftrightarrow A)) \leftrightarrow (B \rightarrow A)
+
+P = B \leftrightarrow A
+
+A \rightarrow B \or P) \leftrightarrow (B \rightarrow A)
+Q = A \rightarrow B \or P
+
+Q \leftrightarrow (B \rightarrow A)
+
+
+
+
+(A \rightarrow B \or (B \leftrightarrow A)) \leftrightarrow (B \rightarrow A)
+
+((A \rightarrow B \or (B \leftrightarrow A)) \implication (B \rightarrow A)) and ()
+"""
 
 def build_quantifier_token(latex):
     latex_split = latex.split()
@@ -121,7 +143,7 @@ def extract_next_token(latex):
     elif is_proposition_token(latex):
         return build_proposition_token(latex)
     elif is_sub_formula_token(latex):
-        return build_formula(latex)
+        return build_sub_formula_token(latex)
     elif is_connective_token(latex):
         return build_connective_token(latex)
     else:
@@ -139,13 +161,3 @@ def build_formula(latex):
 
     return formula
 
-r"""
-
-A \leftrightarrow B \equiv (A \rightarrow B) \wedge (B \rightarrow A)
-\leftrightarrow B \equiv (A \rightarrow B) \wedge (B \rightarrow A) 
-B \equiv (A \rightarrow B) \wedge (B \rightarrow A) 
-\equiv (A \rightarrow B) \wedge (B \rightarrow A) 
-(A \rightarrow B) \wedge (B \rightarrow A) 
-
-
-"""
