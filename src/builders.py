@@ -8,14 +8,12 @@ from src.config import (
 )
 from src.models import (
     Formula,
-    Quantifier,
     ExistentialQuantifier,
     UniversalQuantifier,
     Predicate,
     Literal,
     Connective,
 )
-from src.validators import is_valid_character
 from src.config import quantifier
 
 
@@ -106,7 +104,7 @@ def build_predicate_token(latex):
             f"Variáveis da proposição {predicate_character} estão inválidas: {variables}"
         )
 
-    return latex[latex.find(")") + 1].strip(), Predicate(predicate_character, variables)
+    return latex[latex.find(")") + 1:].strip(), Predicate(predicate_character, variables)
 
 
 def build_proposition_token(latex):
