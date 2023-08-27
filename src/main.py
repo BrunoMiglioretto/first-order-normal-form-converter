@@ -1,9 +1,8 @@
-from IPython.core.display import Math
-from IPython.core.display_functions import display
 import traceback
 
 
 from src.builders import build_formula_token
+from src.printer import build_printable_formula
 from src.replacers import transform_to_fnd
 
 latex_formulas = [
@@ -18,13 +17,14 @@ latex_formulas = [
 
 
 try:
-    for latex in latex_formulas[1:2]:
-        print(f"Analisando latex: {latex}")
+    for latex in latex_formulas[0:1]:
         _, formula = build_formula_token(latex)
+
+        print(f"Fórmula inicial: {build_printable_formula(formula)}")
 
         formula = transform_to_fnd(formula)
 
-        # display(Math(latex))
+        print(f"Fórmula final: {build_printable_formula(formula)}")
 except Exception as e:
     print(f"Erro: {e}")
     traceback.print_exc()
