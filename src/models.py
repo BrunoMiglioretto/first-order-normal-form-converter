@@ -1,7 +1,7 @@
-
 class Formula:
-    def __init__(self):
+    def __init__(self, negation=False):
         self.tokens = []
+        self.negation = negation
 
     def append_token(self, token):
         self.tokens.append(token)
@@ -38,5 +38,3 @@ class ExistentialQuantifier(Quantifier):
 class UniversalQuantifier(Quantifier):
     def __init__(self, variable, negation=False):
         super().__init__(variable, negation=negation)
-
-

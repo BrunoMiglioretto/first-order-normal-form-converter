@@ -18,6 +18,7 @@ def is_valid_character(character):
         and character not in valid_variables
         and character not in valid_predicates
         and character not in valid_parentheses
+        and character not in [" ", "\\"]
     ):
         raise Exception(f"Caracter inválido: {character}")
 

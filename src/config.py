@@ -14,11 +14,11 @@ modulator = {
 }
 
 valid_propositions = [
-    "p",
-    "q",
-    "r",
-    "s",
-    "x",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "X",
 ]
 valid_connectives = list(connective.values())
 valid_modulators = list(modulator.values())

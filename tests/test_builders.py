@@ -1,4 +1,8 @@
-from src.builders import is_quantifier_token, is_negation_modifier_token, is_connective_token
+from src.builders import (
+    is_quantifier_token,
+    is_negation_modifier_token,
+    is_connective_token,
+)
 
 
 def test_is_quantifier_token():
