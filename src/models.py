@@ -1,3 +1,5 @@
+import copy
+
 from src.config import connective
 
 
@@ -10,6 +12,11 @@ class Formula:
 
     def __str__(self):
         return "Formula"
+
+    def __copy__(self):
+        formula = Formula(self.negation)
+        formula.tokens = [copy.copy(token) for token in self.tokens]
+        return formula
 
     def append_token(self, token):
         self.tokens.append(token)
