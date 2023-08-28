@@ -105,4 +105,3 @@ def replace_de_morgan(formula):
 
 
 # def replace_distribution(formula):
-

@@ -1,5 +1,11 @@
 from src.config import quantifier
-from src.models import Formula, Connective, Predicate, Quantifier, ExistentialQuantifier, UniversalQuantifier
+from src.models import (
+    Formula,
+    Connective,
+    Predicate,
+    ExistentialQuantifier,
+    UniversalQuantifier,
+)
 
 printable_connective = {
     r"\wedge": "∧",
@@ -45,9 +51,13 @@ def build_printable_formula(formula, is_sub_formula=False):
         elif isinstance(token, Predicate):
             string = f"{string}{build_printable_predicate(token)}"
         elif isinstance(token, ExistentialQuantifier):
-            string = f"{string}{build_printable_quantifier(token, quantifier['exists'])}"
+            string = (
+                f"{string}{build_printable_quantifier(token, quantifier['exists'])}"
+            )
         elif isinstance(token, UniversalQuantifier):
-            string = f"{string}{build_printable_quantifier(token, quantifier['forall'])}"
+            string = (
+                f"{string}{build_printable_quantifier(token, quantifier['forall'])}"
+            )
         else:
             string = f"{string}{build_printable_token(token)}"
 

@@ -104,7 +104,9 @@ def build_predicate_token(latex):
             f"Variáveis da proposição {predicate_character} estão inválidas: {variables}"
         )
 
-    return latex[latex.find(")") + 1:].strip(), Predicate(predicate_character, variables)
+    return latex[latex.find(")") + 1 :].strip(), Predicate(
+        predicate_character, variables
+    )
 
 
 def build_proposition_token(latex):

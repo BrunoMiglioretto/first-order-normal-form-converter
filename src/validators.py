@@ -84,10 +84,7 @@ def validate_quantifier(index, formula):
     finally:
         try:
             next_token = formula.tokens[index + 1]
-            if (
-                isinstance(next_token, Literal)
-                or isinstance(next_token, Connective)
-            ):
+            if isinstance(next_token, Literal) or isinstance(next_token, Connective):
                 raise Exception("Quantificador inválido")
         except IndexError:
             pass
